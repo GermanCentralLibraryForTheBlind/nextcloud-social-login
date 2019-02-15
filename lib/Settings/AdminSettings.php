@@ -45,6 +45,7 @@ class AdminSettings implements ISettings
             'twitter',
             'GitHub',
             'discord',
+            'DZB'
         ];
         $groupNames = [];
         $groups = $this->groupManager->search('');

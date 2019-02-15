@@ -31,7 +31,9 @@ a[href*="/sociallogin/oauth/GitHub"]::before {
 a[href*="/sociallogin/oauth/discord"]::before {
   background-image: url(../img/discord.svg);
 }
-
+a[href*="/sociallogin/oauth/dzb"]::before {
+  background-image: url(../img/dzb.svg);
+}
 .sociallogin-connect li {
   margin-bottom: 10px;
 }

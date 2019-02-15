@@ -18,7 +18,7 @@ use OCA\SocialLogin\Storage\SessionStorage;
 use OCA\SocialLogin\Provider\CustomOAuth2;
 use OCA\SocialLogin\Provider\CustomOpenIDConnect;
 use OCA\SocialLogin\Db\SocialConnectDAO;
-use Hybridauth\Provider;
+use OCA\SocialLogin\Provider;
 use Hybridauth\User\Profile;
 use Hybridauth\HttpClient\Curl;
 use Hybridauth\Data;
@@ -111,7 +111,13 @@ class LoginController extends Controller
                 }
             }
         }
-        return $this->auth(Provider::class.'\\'.ucfirst($provider), $config, $provider, 'OAuth');
+
+        $class = Provider::class.'\\'.ucfirst($provider);
+
+        if(strtolower($provider) === 'dzb') {
+            $class = Provider\DZB::class;
+        }
+        return $this->auth($class, $config, $provider, 'OAuth');
     }
 
     /**

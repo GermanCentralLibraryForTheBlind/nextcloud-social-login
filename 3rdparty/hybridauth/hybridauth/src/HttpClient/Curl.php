@@ -149,6 +149,7 @@ class Curl implements HttpClientInterface
             curl_setopt($curl, $opt, $value);
         }
 
+        curl_setopt($curl, CURLOPT_PROXY, "172.17.0.3:8080");
         $response = curl_exec($curl);
 
         $this->responseBody        = $response;
